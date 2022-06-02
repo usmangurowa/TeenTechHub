@@ -24,6 +24,7 @@
     "swiper": "^8.2.2"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.4",
     "@types/node": "latest",
     "@types/react": "latest",
     "eslint": "latest",
