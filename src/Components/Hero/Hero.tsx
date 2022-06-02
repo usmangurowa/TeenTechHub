@@ -73,11 +73,14 @@ const Hero = () => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={2} direction={{ xs: "column", md: "row" }}>
-                  <Link href="https://forms.gle/NUKcEeRim43szA5h7">
-                    <Button variant="contained" sx={{ py: 2, px: 5 }}>
-                      Support Us
-                    </Button>
-                  </Link>
+                  <Button variant="contained" sx={{ py: 2, px: 5 }}>
+                    <Link
+                      href="https://forms.gle/NUKcEeRim43szA5h7"
+                      sx={{ width: "100%" }}
+                    >
+                      <Typography color="secondary">Support Us</Typography>
+                    </Link>
+                  </Button>
                   <Button
                     onClick={() => ScrollToElement("#about")}
                     variant="outlined"
