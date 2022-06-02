@@ -12,7 +12,7 @@ const Counter = ({
 }) => {
   const [count, setCount] = React.useState<number>(start);
 
-  const countNode = React.useRef();
+  const countNode = React.useRef<HTMLSpanElement>(null);
 
   const isVisible = useIsVisible(countNode);
 
