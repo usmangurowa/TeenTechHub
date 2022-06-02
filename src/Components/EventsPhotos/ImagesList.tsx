@@ -39,7 +39,7 @@ const EventPhotos = () => {
         </div>
 
         <ImageList cols={4} rowHeight={164}>
-          {[...new Array(11)].map((item, index) => (
+          {[...new Array(17)].map((item, index) => (
             <ImageListItem key={index}>
               <img
                 src={`/images/teen-code/${index + 1}.jpg`}

@@ -65,7 +65,11 @@ const Hero = () => {
                 <Slides />
               </Grid>
               <Grid item xs={12} md={6}>
-                <Box component="img" sx={styles.img} src="/images/kids.jpg" />
+                <Box
+                  component="img"
+                  sx={styles.img}
+                  src="/images/teen-code/1.jpg"
+                />
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={2} direction={{ xs: "column", md: "row" }}>
