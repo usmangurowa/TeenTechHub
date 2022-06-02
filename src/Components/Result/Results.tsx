@@ -35,7 +35,7 @@ const Results = ({
   content: string;
 }) => {
   const [show, setShow] = React.useState<boolean>(false);
-  const accNode = React.useRef();
+  const accNode = React.useRef<HTMLDivElement>(null);
   const isVisible = useIsVisible(accNode);
 
   let timing: any = undefined;
