@@ -21,9 +21,21 @@ import colors from "../Theming/Colors";
 import ScrollToElement from "../ScrollToElement";
 
 const socials = [
-  { label: "Facebook", icon: <FacebookIcon />, link: "#" },
-  { label: "Twitter", icon: <TwitterIcon />, link: "#" },
-  { label: "Instagram", icon: <InstagramIcon />, link: "#" },
+  {
+    label: "Facebook",
+    icon: <FacebookIcon />,
+    link: "https://facebook.com/buildbrothers",
+  },
+  {
+    label: "Twitter",
+    icon: <TwitterIcon />,
+    link: "https://twitter.com/TeenTech_Hub",
+  },
+  {
+    label: "Instagram",
+    icon: <InstagramIcon />,
+    link: " https://www.instagram.com/teentechhub/",
+  },
 ];
 
 const links = [

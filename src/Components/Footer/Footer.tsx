@@ -25,9 +25,21 @@ const quickLinks: Array<any> = [
 ];
 
 const socialLinks: Array<any> = [
-  { title: "Facebook", icon: <FacebookIcon />, link: "#" },
-  { title: "Instagram", icon: <InstagramIcon />, link: "#" },
-  { title: "Twitter", icon: <TwitterIcon />, link: "#" },
+  {
+    title: "Facebook",
+    icon: <FacebookIcon />,
+    link: "https://facebook.com/buildbrothers",
+  },
+  {
+    title: "Instagram",
+    icon: <InstagramIcon />,
+    link: "https://www.instagram.com/teentechhub/",
+  },
+  {
+    title: "Twitter",
+    icon: <TwitterIcon />,
+    link: "https://twitter.com/TeenTech_Hub",
+  },
 ];
 
 const styles = {
