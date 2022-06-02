@@ -9,6 +9,7 @@ import createEmotionCache from "../src/createEmotionCache";
 import "../style/global.css";
 import Navigation from "../src/Components/Navigation";
 import Footer from "../src/Components/Footer";
+import Loading from "../src/Components/Loading/Loading";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -19,6 +20,13 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const [loading, setLoading] = React.useState<boolean>(true);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -29,6 +37,12 @@ export default function MyApp(props: MyAppProps) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Navigation />
+        {loading && (
+          <div className="overlay">
+            <img src="/images/logo.png" />
+            <Loading />
+          </div>
+        )}
         <Component {...pageProps} />
         <Footer />
       </ThemeProvider>

@@ -5,12 +5,21 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Breadcrumbs from "@mui/material/Toolbar";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+
+import MenuIcon from "@mui/icons-material/Menu";
 
 import Link from "../Link";
 
@@ -19,6 +28,8 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import colors from "../Theming/Colors";
 import ScrollToElement from "../ScrollToElement";
+
+import { useRouter } from "next/router";
 
 const socials = [
   {
@@ -70,24 +81,61 @@ const styles = {
 };
 
 const Navigation: NextComponentType = () => {
+  const [open, setOpen] = React.useState<boolean>(false);
   const trigger = useScrollTrigger({
     target: typeof window !== "undefined" ? window : undefined,
   });
+
+  const router = useRouter();
+
+  React.useEffect(() => {
+    setOpen(false);
+  }, [router.asPath]);
   return (
     <>
+      <Drawer anchor={"left"} open={open} onClose={() => setOpen(false)}>
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <Box
+                component="img"
+                src={"/images/logo.png"}
+                sx={{ height: "30px" }}
+              />
+            </ListItemButton>
+          </ListItem>
+          {links.map((link, index) => (
+            <ListItem key={index} disablePadding>
+              <ListItemButton>
+                <Link href={link.link}>
+                  <ListItemText primary={link.label} />
+                </Link>
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
       <Slide appear={false} direction="down" in={!trigger}>
         <AppBar sx={styles.appBar}>
           <Toolbar>
             <Container sx={styles.toolbar}>
-              <Link href="/">
-                <Box
-                  component="img"
-                  src={"/images/logo.png"}
-                  sx={{ height: "30px" }}
-                />
-              </Link>
+              <Box sx={styles.toolbar}>
+                <IconButton
+                  onClick={() => setOpen(true)}
+                  sx={{ display: { xs: "flex", md: "none" } }}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Link href="/">
+                  <Box
+                    component="img"
+                    src={"/images/logo.png"}
+                    sx={{ height: "30px" }}
+                  />
+                </Link>
+              </Box>
 
-              <Breadcrumbs sx={styles.bread}>
+              <Breadcrumbs separator=" " sx={styles.bread}>
                 {links.map((link) => {
                   return (
                     <Button
